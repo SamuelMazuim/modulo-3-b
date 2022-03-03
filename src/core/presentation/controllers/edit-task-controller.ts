@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { TaskRepository } from "../repositories/task-repository";
+import { TaskRepository } from "../../infra/repositories/task-repository";
 
 export default class EditTaskController {
-    public handle(req: Request, res: Response) {
+    public async handle(req: Request, res: Response) {
         const repository = new TaskRepository();
         const { taskId } = req.params;
         const { title, description } = req.body;
 
-        return res.json(repository.edit(taskId, title, description));
+        return res.json(await repository.edit(taskId, title, description));
     }
 }

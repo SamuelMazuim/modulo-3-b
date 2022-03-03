@@ -1,5 +1,11 @@
+import { DatabaseConnection } from "./core/infra/database/connections/connection";
+
 import App from "./app";
 
-const app = new App();
+DatabaseConnection.initConnection()
+    .then(() => {
+        const app = new App();
 
-app.init();
+        app.init();
+    })
+    .catch((error) => console.log(error));

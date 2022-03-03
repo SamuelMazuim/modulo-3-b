@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { TaskParams, TaskRepository } from "../repositories/task-repository";
+import { TaskParams } from "../../domain/model/task-model";
+import { TaskRepository } from "../../infra/repositories/task-repository";
 
 export default class CreateTaskController {
     public handle(req: Request, res: Response): Response<TaskParams> {
