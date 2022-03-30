@@ -3,11 +3,11 @@ require("dotenv/config")
 module.exports = {
     type: "postgres",
     url: process.env.DATABASE_URL,
-    entities: ["**/core/infra/database/entities/**/*"],
-    migrations: ["**/core/infra/database/migrations/**/*"],
+    entities: ["dist/core/infra/database/entities/**/*"],
+    migrations: ["dist/core/infra/database/migrations/**/*"],
     cli: {
-        entitiesDir: "**/core/infra/database/entities",
-        migrationsDir: "**/core/infra/database/migrations",
+        entitiesDir: "dist/core/infra/database/entities",
+        migrationsDir: "dist/core/infra/database/migrations",
     },
     synchronize: false,
     extra: {
