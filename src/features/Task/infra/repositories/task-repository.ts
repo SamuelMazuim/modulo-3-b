@@ -1,5 +1,5 @@
+import { TaskEntity } from "../../../../core/infra/database/entities/task";
 import { TaskParams } from "../../domain/model/task-model";
-import { TaskEntity } from "../database/entities/task";
 
 export class TaskRepository {
     create(data: TaskParams) {
