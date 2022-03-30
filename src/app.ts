@@ -1,6 +1,7 @@
-import express, { json, urlencoded, Express } from "express";
+import express, { json, urlencoded, Express, Request, Response, Router } from "express";
 import cors from "cors";
-import routes from "./routes";
+import routes from "./features/Task/presentation/routes/routes";
+import TaskRouter from "./features/Task/presentation/routes/routes";
 
 export default class App {
     readonly express: Express;
@@ -15,6 +16,12 @@ export default class App {
     }
 
     public routes() {
+        const routes = Router();
+        routes.get("/", (req: Request, res: Response) => {
+            return res.send("ok");
+        });
+        const taskRoutes = new TaskRouter().init(routes);
+        this.express.use(taskRoutes);
         this.express.use(routes);
     }
 
