@@ -1,5 +1,7 @@
 require("dotenv/config")
 
+// USAR SERVIDOR //
+
 module.exports = {
     type: "postgres",
     url: process.env.DATABASE_URL,
@@ -16,15 +18,22 @@ module.exports = {
         },
     },
 }
-//usar no servidor
-// entities: ["src/core/infra/database/entities/**/*.{js, ts}"],
-//     migrations: ["src/core/infra/database/migrations/**/*.{js, ts}"],
-//     cli: {
-//         entitiesDir: "src/core/infra/database/entities",
-//         migrationsDir: "src/core/infra/database/migrations",
-//usar no server local
-// entities: ["src/core/infra/database/entities/**/*"],
+
+// TESTE LOCAL //
+
+// module.exports = {
+//     type: "postgres",
+//     url: process.env.DATABASE_URL,
+//     entities: ["src/core/infra/database/entities/**/*"],
 //     migrations: ["src/core/infra/database/migrations/**/*"],
 //     cli: {
 //         entitiesDir: "src/core/infra/database/entities",
 //         migrationsDir: "src/core/infra/database/migrations",
+//     },
+//     synchronize: false,
+//     extra: {
+//         ssl: {
+//             rejectUnauthorized: false,
+//         },
+//     },
+// }
