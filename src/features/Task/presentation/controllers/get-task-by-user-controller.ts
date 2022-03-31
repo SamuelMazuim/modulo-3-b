@@ -6,7 +6,7 @@ export default class GetTaskByUserController {
     public async handle(req: Request, res: Response) {
         const { userId } = req.params
         const cacheRepository = new CacheRepository()
-        const cache = await cacheRepository.get(`${userId}-task:all`)
+        const cache = await cacheRepository.get(`task:${userId}`)
 
         if (cache) {
             let cacheJson = res.json(
@@ -21,7 +21,7 @@ export default class GetTaskByUserController {
 
         console.log(getByUserRepository)
 
-        await cacheRepository.set(`${userId}-task:all`, getByUserRepository)
+        await cacheRepository.set(`task:${userId}`, getByUserRepository)
 
         return res.json(getByUserRepository)
     }
