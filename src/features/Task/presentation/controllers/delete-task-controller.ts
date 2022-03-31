@@ -8,7 +8,6 @@ export default class DeleteTaskController {
         const cacheRepository = new CacheRepository()
 
         const cache = await cacheRepository.delete(`task:${userId}`)
-        console.log("JNSLJFGNSJLFNSDJLFND", userId)
 
         const repository = new TaskRepository()
 
