@@ -16,7 +16,7 @@ export default class TaskRouter {
 
         routes.get("/task/:userId", new GetTaskByUserController().handle)
 
-        routes.put("/task/:taskId", new EditTaskController().handle)
+        routes.put("/task/:userId/:taskId", new EditTaskController().handle)
 
         routes.delete("/task/:userId/:taskId", new DeleteTaskController().handle)
 
